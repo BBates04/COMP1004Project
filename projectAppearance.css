@@ -1,0 +1,208 @@
+:root {
+    --backgroundColor: aliceblue;
+    --textColor: white;
+    --boxBackgroundColor: blue;
+    --boxBorderColor: lightblue;
+    --LD: "L";
+}     
+
+@media (prefers-color-scheme: dark) {
+    :root {
+      --backgroundColor: navy;
+      --textColor: grey;
+      --boxBackgroundColor: black;
+      --boxBorderColor: grey;
+      --LD: "D";
+    }
+} 
+
+.GridContainer {
+    display: grid;
+    grid-template-areas: 
+    'Header'
+    'Body'
+    'Footer';
+}
+
+.Body {
+    display: grid;
+    grid-template-areas: 'Sidebar Main';
+    margin: 1%;
+    padding: 1%;
+    grid-template-columns: 20% 80%;
+}
+
+* {
+    background-color: var(--backgroundColor);
+}
+
+.PageHeader{
+    border-style: solid;
+    border-color: var(--boxBorderColor);
+    margin: 1%;
+    padding: 1%;
+    background-color: var(--boxBackgroundColor);
+    color: var(--textColor);
+    text-align: center;
+    text-decoration: underline;
+    font-family: sans-serif;
+    font-weight: bolder;
+    font-size: 2vw;
+}
+
+.Sidebar{
+    display: flexbox;
+    justify-content: center;
+    border-style: solid;
+    border-color: var(--boxBorderColor);
+    margin: 1%;
+    padding: 1%;
+    background-color: var(--boxBackgroundColor);
+}
+
+.Sidebar img {
+    background-color: var(--boxBackgroundColor);
+    max-width: 50%;
+}
+
+header ul {
+    margin: 1%;
+    padding: 1%;
+    display: flex;
+    background-color: var(--boxBackgroundColor);
+    border-style: solid;
+    border-color: var(--boxBorderColor);
+    background-color: var(--boxBackgroundColor);
+}
+header ul li {
+    background-color: var(--boxBackgroundColor);
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+}
+
+header ul li a{
+    background-color: var(--boxBackgroundColor);
+    color: var(--textColor);
+    text-align: center;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1vw;
+}
+
+:where(header) a{
+    list-style-type: none;
+}
+
+a.Active {
+    background-color: var(--textColor);
+    color: var(--boxBackgroundColor);
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: bolder;
+}
+
+header a:hover:is(.Inactive) {
+    background-color: var(--textColor);
+    color: var(--boxBackgroundColor);
+    font-weight: bolder;
+}
+
+.Main {
+    margin: 1%;
+    padding: 1%;
+    border-style: solid;
+    border-color: var(--boxBorderColor);
+    background-color: var(--boxBackgroundColor);
+}
+
+.MainParagraph {
+    background-color: var(--boxBackgroundColor);
+    color: var(--textColor);
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1vw;
+}
+
+input[type="text"] {
+    border-color: var(--textColor);
+    color: var(--textColor);
+    background-color: var(--boxBackgroundColor);
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1vw;
+}
+
+input[type="text"]:focus {
+    color: var(--boxBackgroundColor);
+    background-color: var(--textColor);
+}
+
+input[type="text"]:not(:focus) {
+    color: var(--textColor);
+    background-color: var(--boxBackgroundColor);
+}
+
+::placeholder {
+    color: var(--textColor);
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1vw;
+}
+
+input[type="button"] {
+    border-color: var(--textColor);
+    background-color: var(--textColor);
+    color: var(--boxBackgroundColor);
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1vw;
+}
+
+input[type="submit"] {
+    border-color: var(--textColor);
+    background-color: var(--textColor);
+    color: var(--boxBackgroundColor);
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1vw;
+}
+
+.Sidebar input[type="button"] {
+    max-width: 100%;
+    margin-top: 20%;
+    background-color: var(--textColor);
+    color: var(--boxBackgroundColor);
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1.7vw;
+}
+
+:where(p) {
+    background-color: var(--boxBackgroundColor);
+    color: var(--textColor);
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1vw;
+}
+:where(label) {
+    background-color: var(--boxBackgroundColor);
+    color: var(--textColor);
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1vw;
+}
+
+
+.Footer p {
+    border-style: solid;
+    border-color: var(--boxBorderColor);
+    margin: 1%;
+    padding: 1%;
+    text-align: center;
+}
+

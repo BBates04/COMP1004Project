@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html class="GridContainer">
+    <head>
+        <title>Register Vehicle</title>
+        <meta name="author" content="BBates"/>
+        <meta name="description" content="Page for adding a vehicle to the DB."/>
+        <meta name="language" content="en-GB">
+        <meta name="charset" content = "utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="projectAppearance.css"/>
+        <script type="module" src="projectScriptingAndDBAccess.js" defer></script>
+    </head>
+
+    <header>
+        <h1 class="PageHeader" id="TitleHeader">Register Vehicle</h1>
+        <nav>
+            <ul id="NavigationLinks">
+                <li>
+                    <a class="Inactive" href="peopleLookUp.html" id="PersonSearchLink">Search for Person</a>
+                </li>
+                <li>
+                    <a class="Inactive" href="vehicleLookUp.html" id="VehicleSearchLink">Search for Vehicle</a>
+                </li>
+                <li>
+                    <a class="Active" href="vehicleRegister.html" id="VehicleRegisterLink">Register Vehicle</a> 
+                </li> 
+            </ul>
+        </nav>
+    </header>
+
+    <body>
+        <section class="Body" id="BodyGrid">
+            <sidebar class="Sidebar">
+                <img src="assets/badge.png" alt="Badge" id="BadgeImage"/>
+                <input id="DarkModeButton" name="DarkModeButton" type="button" value="Toggle Dark Mode"> 
+            </sidebar>
+    
+            <main class="Main" id="MainSection">
+                <form class="MainParagraph" id="RegistrationForm" onsubmit="return false;">
+                    License Plate Number:
+                    <input id="VehicleLPBox" name="VehicleLPBox" type="text" placeholder="Enter value">
+                    <p hidden id="LPExistsPara">This license plate is already registered.</p>
+                    <br>
+                    Vehicle Make:
+                    <input id="VehicleMakeBox" name="VehicleMakeBox" type="text" placeholder="Enter value">
+                    <br>
+                    Vehicle Model:
+                    <input id="VehicleModelBox" name="VehicleModelBox" type="text" placeholder="Enter value">
+                    <br>
+                    Vehicle Colour:
+                    <input id="VehicleColourBox" name="VehicleColourBox" type="text" placeholder="Enter value">
+                    <br>
+                    <br>
+                    <label for="OwnerNameBox" id="OwnerNameLabel">Owner Name:</label>
+                    <input id="OwnerNameBox" name="OwnerNameBox" type="text" placeholder="Enter value">
+                    <br>
+                    <p hidden id="OwnerInformationPara">Owner not recognised, please enter owner details</p>
+                    <label hidden for="OwnerAddressBox" id="OwnerAddressLabel">Owner Address:</label>
+                    <input hidden id="OwnerAddressBox" name="OwnerAddressBox" type="text" placeholder="Enter value">
+                    <br>
+                    <label hidden for="OwnerDOBBox" id="OwnerDOBLabel">Owner Date of Birth (YYYY-MM-DD):</label>
+                    <input hidden id="OwnerDOBBox" name="OwnerDOBBox" type="text" placeholder="Enter value">
+                    <br> 
+                    <label hidden for="OwnerLNBox" id="OwnerLNLabel">Owner License Number:</label>
+                    <input hidden id="OwnerLNBox" name="OwnerLNBox" type="text" placeholder="Enter value">
+                    <br>
+                    <label hidden for="OwnerEDBox" id="OwnerEDLabel">License Expiry Date (YYYY-MM-DD):</label>
+                    <input hidden id="OwnerEDBox" name="OwnerEDBox" type="text" placeholder="Enter value">
+                    <br>
+                    <br>
+                    <input id="VehicleRegisterButton" name="VehicleRegisterButton" type="submit" value="Submit">                          
+            </main>
+                </form>
+        </section>
+    </body>
+
+    <footer class="Footer" id="Footer">
+        <p id="FooterContent">
+            Created by B Bates for University of Nottingham COMP1004 CW2, 2024.
+        </p>
+    </footer>
+</html>

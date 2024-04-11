@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html class="GridContainer">
+    <head>
+        <title>Search for Vehicle</title>
+        <meta name="author" content="BBates"/>
+        <meta name="description" content="Page for looking up vehicles in the DB by vehicle registration / license plate number."/>
+        <meta name="language" content="en-GB">
+        <meta name="charset" content = "utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="projectAppearance.css"/>
+        <script type="module" src="projectScriptingAndDBAccess.js" defer></script>
+    </head>
+
+    <header>
+        <h1 class="PageHeader" id="TitleHeader">Search for Vehicle</h1>
+        <nav>
+            <ul id="NavigationLinks">
+                <li>
+                    <a class="Inactive" href="peopleLookUp.html" id="PersonSearchLink">Search for Person</a>
+                </li>
+                <li>
+                    <a class="Active" href="vehicleLookUp.html" id="VehicleSearchLink">Search for Vehicle</a>
+                </li>
+                <li>
+                    <a class="Inactive" href="vehicleRegister.html" id="VehicleRegisterLink">Register Vehicle</a> 
+                </li> 
+            </ul>
+        </nav>
+    </header>
+
+    <body>
+        <section class="Body" id="BodyGrid">
+            <sidebar class="Sidebar">
+                <img src="assets/badge.png" alt="Badge" id="BadgeImage"/>
+                <input id="DarkModeButton" name="DarkModeButton" type="button" value="Toggle Dark Mode"> 
+            </sidebar>
+    
+            <main class="Main" id="MainSection">
+                <form class="MainParagraph">
+                    Enter Vehicle License Plate Number:
+                    <input id="SearchTermBox" name="SearchTermBox" type="text" placeholder="Enter value">
+                    <input id="VehicleSearchButton" name="VehicleSearchButton" type="button" value="Search">
+                </form>
+            </main>
+        </section>
+    </body>
+
+    <footer class="Footer" id="Footer">
+        <p id="FooterContent">
+            Created by B Bates for University of Nottingham COMP1004 CW2, 2024.
+        </p>
+    </footer>
+</html>
