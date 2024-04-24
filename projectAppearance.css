@@ -14,9 +14,9 @@
       --boxBorderColor: grey;
       --LD: "D";
     }
-} 
+}
 
-.GridContainer {
+.container {
     display: grid;
     grid-template-areas: 
     'Header'
@@ -34,6 +34,24 @@
 
 * {
     background-color: var(--backgroundColor);
+}
+
+header {
+    border-style: solid;
+    margin: 10px;
+    padding: 10px;
+}
+
+main {
+    border-style: solid;
+    margin: 10px;
+    padding: 10px;
+}
+
+footer {
+    border-style: solid;
+    margin: 10px;
+    padding: 10px;
 }
 
 .PageHeader{
@@ -126,6 +144,15 @@ header a:hover:is(.Inactive) {
     font-size: 1vw;
 }
 
+.SearchResult {
+    background-color: var(--boxBackgroundColor);
+    color: var(--textColor);
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1vw;
+}
+
 input[type="text"] {
     border-color: var(--textColor);
     color: var(--textColor);
@@ -177,7 +204,7 @@ input[type="submit"] {
     color: var(--boxBackgroundColor);
     font-family: sans-serif;
     font-weight: bold;
-    font-size: 1.7vw;
+    font-size: 1.5vw;
 }
 
 :where(p) {

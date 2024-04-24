@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html class="container" lang="en">
+    <head>
+        <title>Search for Person</title>
+        <meta name="author" content="BBates"/>
+        <meta name="description" content="Page for looking up people in the DB by name or driving license number."/>
+        <meta name="language" content="en-GB">
+        <meta name="charset" content = "utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="projectAppearance.css"/>
+        <script type="module" src="projectScriptingAndDBAccess.js" defer></script>
+    </head>
+
+    <header>
+        <h1 class="PageHeader" id="TitleHeader">People Search</h1>
+        <nav>
+            <ul id="NavigationLinks">
+                <li>
+                    <a class="Active" href="people-look-up.html" id="PersonSearchLink">Person Search</a>
+                </li>
+                <li>
+                    <a class="Inactive" href="vehicle-look-up.html" id="VehicleSearchLink">Vehicle Search</a>
+                </li>
+                <li>
+                    <a class="Inactive" href="vehicle-register.html" id="VehicleRegisterLink">Add a Vehicle</a> 
+                </li> 
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <body>
+            <section class="Body" id="BodyGrid">
+                <sidebar class="Sidebar">
+                    <img src="assets/badge.png" alt="Badge" id="BadgeImage"/>
+                    <input id="DarkModeButton" name="DarkModeButton" type="button" value="Toggle Dark Mode"> 
+                </sidebar>
+        
+                <main class="Main" id="MainSection">
+                    <form class="MainParagraph">
+                        Enter Name:
+                        <input id="name" name="name" type="text" placeholder="Enter value">
+                        <br>
+                        Or License Number:
+                        <input id="license" name ="license" type="text" placeholder="Enter value">
+                        <br>
+                        <input id="PeopleSearchButton" name="PeopleSearchButton" type="button" value="Submit">
+                    </form>
+
+                    <p id="results"></p>
+                    <p id="message"></p>
+                </main>
+            </section>
+        </body>
+    </main>
+
+    <footer class="Footer" id="Footer">
+        <p id="FooterContent">
+            Created by B Bates for University of Nottingham COMP1004 CW2, 2024.
+        </p>
+        <img src="assets/godfather-don-corleone.gif" alt="Me when I add the CSS specific requirements:" id="GodDamnYou">
+    </footer>
+</html>
