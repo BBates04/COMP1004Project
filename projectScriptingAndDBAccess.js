@@ -245,10 +245,10 @@ const VehicleModelBox = document.getElementById("model");
 const VehicleColourBox = document.getElementById("colour");
 
 const OwnerNameBox = document.getElementById("owner");
-if(OwnerNameBox)
+/*if(OwnerNameBox)
 {
     OwnerNameBox.addEventListener("change", OwnerNameChanged);
-}
+}*/
 const OwnerIDBox = document.getElementById("personid");
 const OwnerName = document.getElementById("name");
 const OwnerAddressBox = document.getElementById("address");
@@ -312,17 +312,45 @@ function RegisterVehicle()
                     document.getElementById("expire").value = "";
                     document.getElementById("OwnerEDLabel").hidden = false;
                     document.getElementById("expire").hidden = false;
-                    document.getElementById("personID").type = "text";
-                    document.getElementById("personID").value = "";
+                    document.getElementById("personid").type = "text";
+                    document.getElementById("personid").value = "";
                     document.getElementById("OwnerIDLabel").hidden = false;
-                    document.getElementById("personID").hidden = false;
+                    document.getElementById("personid").hidden = false;
                     document.getElementById("AddOwnerButton").hidden = false;
                     document.getElementById("name").type = "text";
                     document.getElementById("name").value = "";
                     document.getElementById("OwnerNameLabel").hidden = false;
                     document.getElementById("name").hidden = false;
-                    return;
                 }
+            }
+            else
+            {
+                document.getElementById("OwnerInformationPara").hidden = false;
+                document.getElementById("address").type = "text";
+                document.getElementById("address").value = "";
+                document.getElementById("OwnerAddressLabel").hidden = false;
+                document.getElementById("address").hidden = false;
+                document.getElementById("dob").type = "text";
+                document.getElementById("dob").value = "";
+                document.getElementById("OwnerDOBLabel").hidden = false;
+                document.getElementById("dob").hidden = false;
+                document.getElementById("license").type = "text";
+                document.getElementById("license").value = "";
+                document.getElementById("OwnerLNLabel").hidden = false;
+                document.getElementById("license").hidden = false;
+                document.getElementById("expire").type = "text";
+                document.getElementById("expire").value = "";
+                document.getElementById("OwnerEDLabel").hidden = false;
+                document.getElementById("expire").hidden = false;
+                document.getElementById("personid").type = "text";
+                document.getElementById("personid").value = "";
+                document.getElementById("OwnerIDLabel").hidden = false;
+                document.getElementById("personid").hidden = false;
+                document.getElementById("AddOwnerButton").hidden = false;
+                document.getElementById("name").type = "text";
+                document.getElementById("name").value = "";
+                document.getElementById("OwnerNameLabel").hidden = false;
+                document.getElementById("name").hidden = false;
             }
             
         });
@@ -360,8 +388,8 @@ function OwnerNameChanged()
                 document.getElementById("expire").value = data[0].ExpiryDate;
                 document.getElementById("OwnerEDLabel").hidden = true;
                 document.getElementById("expire").hidden = true;
-                document.getElementById("personID").type = "hidden";
-                document.getElementById("personID").value = data[0].PersonID;
+                document.getElementById("personid").type = "hidden";
+                document.getElementById("personid").value = data[0].PersonID;
                 document.getElementById("OwnerIDLabel").hidden = true;
                 document.getElementById("AddOwnerButton").hidden = true;
                 document.getElementById("name").type = "hidden";
@@ -387,10 +415,10 @@ function OwnerNameChanged()
                 document.getElementById("expire").value = "";
                 document.getElementById("OwnerEDLabel").hidden = false;
                 document.getElementById("expire").hidden = false;
-                document.getElementById("personID").type = "text";
-                document.getElementById("personID").value = "";
+                document.getElementById("personid").type = "text";
+                document.getElementById("personid").value = "";
                 document.getElementById("OwnerIDLabel").hidden = false;
-                document.getElementById("personID").hidden = false;
+                document.getElementById("personid").hidden = false;
                 document.getElementById("AddOwnerButton").hidden = false;
                 document.getElementById("name").type = "text";
                 document.getElementById("name").value = "";
