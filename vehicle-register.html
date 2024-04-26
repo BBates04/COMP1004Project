@@ -22,7 +22,7 @@
                     <a class="Inactive" href="vehicle-look-up.html" id="VehicleSearchLink">Vehicle Search</a>
                 </li>
                 <li>
-                    <a class="assets" href="vehicle-register.html" id="VehicleRegisterLink">Add a Vehicle</a> 
+                    <a class="Active" href="vehicle-register.html" id="VehicleRegisterLink">Add a Vehicle</a> 
                 </li> 
             </ul>
         </nav>
@@ -37,22 +37,22 @@
                 </aside>
         
                 <main class="Main" id="MainSection">
-                    <form class="MainParagraph" id="RegistrationForm" onsubmit="return false;">
-                        License Plate Number:
+                    <!--<form class="MainParagraph" id="RegistrationForm" onsubmit="return false;">-->
+                        <label for="rego" id="LicensePlateLabel">License Plate Number:</label>
                         <input id="rego" name="rego" type="text" placeholder="Enter value">
                         <p hidden id="LPExistsPara">This license plate is already registered.</p>
                         <br>
-                        Vehicle Make:
+                        <label for="make" id="VehicleMakeLabel">Vehicle Make:</label>
                         <input id="make" name="make" type="text" placeholder="Enter value">
                         <br>
-                        Vehicle Model:
+                        <label for="model" id="VehicleModelLabel">Vehicle Model:</label>
                         <input id="model" name="model" type="text" placeholder="Enter value">
                         <br>
-                        Vehicle Colour:
+                        <label for="colour" id="VehicleColourLabel">Vehicle Colour:</label>
                         <input id="colour" name="colour" type="text" placeholder="Enter value">
                         <br>
                         <br>
-                        Owner Name:
+                        <label for="owner" id="OwnerLabel">Owner:</label>
                         <input id="owner" name="owner" type="text" placeholder="Enter value">
                         <br>
                         <br>
@@ -78,7 +78,7 @@
                         <br>
                         <br>
                         <input hidden id="AddOwnerButton" name="AddOwnerButton" type="button" value="Add owner">                        
-                    </form>
+                    <!--</form>-->
 
                     <p id="message"></p>
                 </main>
