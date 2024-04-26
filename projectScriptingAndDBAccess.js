@@ -233,7 +233,7 @@ async function GetVehicles(input)
     return data;
 }
 
-const AddVehicleButton = document.getElementById("Add vehicle");
+const AddVehicleButton = document.getElementById("AddVehicleButton");
 if(AddVehicleButton)
 {
     AddVehicleButton.addEventListener("click", RegisterVehicle);
@@ -249,7 +249,7 @@ if(OwnerNameBox)
 {
     OwnerNameBox.addEventListener("change", OwnerNameChanged);
 }
-const OwnerIDBox = document.getElementById("personID");
+const OwnerIDBox = document.getElementById("personid");
 const OwnerName = document.getElementById("name");
 const OwnerAddressBox = document.getElementById("address");
 const OwnerDOBBox = document.getElementById("dob");
