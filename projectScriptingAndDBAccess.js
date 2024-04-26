@@ -323,36 +323,6 @@ function RegisterVehicle()
                     document.getElementById("name").hidden = false;
                 }
             }
-            else
-            {
-                document.getElementById("OwnerInformationPara").hidden = false;
-                document.getElementById("address").type = "text";
-                document.getElementById("address").value = "";
-                document.getElementById("OwnerAddressLabel").hidden = false;
-                document.getElementById("address").hidden = false;
-                document.getElementById("dob").type = "text";
-                document.getElementById("dob").value = "";
-                document.getElementById("OwnerDOBLabel").hidden = false;
-                document.getElementById("dob").hidden = false;
-                document.getElementById("license").type = "text";
-                document.getElementById("license").value = "";
-                document.getElementById("OwnerLNLabel").hidden = false;
-                document.getElementById("license").hidden = false;
-                document.getElementById("expire").type = "text";
-                document.getElementById("expire").value = "";
-                document.getElementById("OwnerEDLabel").hidden = false;
-                document.getElementById("expire").hidden = false;
-                document.getElementById("personid").type = "text";
-                document.getElementById("personid").value = "";
-                document.getElementById("OwnerIDLabel").hidden = false;
-                document.getElementById("personid").hidden = false;
-                document.getElementById("AddOwnerButton").hidden = false;
-                document.getElementById("name").type = "text";
-                document.getElementById("name").value = "";
-                document.getElementById("OwnerNameLabel").hidden = false;
-                document.getElementById("name").hidden = false;
-            }
-            
         });
     }
     else
