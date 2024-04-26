@@ -233,10 +233,10 @@ async function GetVehicles(input)
     return data;
 }
 
-const VehicleRegistrationForm = document.getElementById("RegistrationForm");
-if(VehicleRegistrationForm)
+const AddVehicleButton = document.getElementById("Add vehicle");
+if(AddVehicleButton)
 {
-    VehicleRegistrationForm.addEventListener("submit", RegisterVehicle);
+    AddVehicleButton.addEventListener("click", RegisterVehicle);
 }
 
 const VehicleLPBox = document.getElementById("rego");
