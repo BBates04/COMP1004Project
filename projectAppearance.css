@@ -16,15 +16,7 @@
     }
 }
 
-.container {
-    display: grid;
-    grid-template-areas: 
-    'Header'
-    'Body'
-    'Footer';
-}
-
-.Body {
+#container {
     display: grid;
     grid-template-areas: 'Sidebar Main';
     margin: 1%;
@@ -37,19 +29,19 @@
 }
 
 header {
-    border-style: solid;
+    border: 1px black;
     margin: 10px;
     padding: 10px;
 }
 
 main {
-    border-style: solid;
+    border: 1px black;
     margin: 10px;
     padding: 10px;
 }
 
 footer {
-    border-style: solid;
+    border: 1px black;
     margin: 10px;
     padding: 10px;
 }
