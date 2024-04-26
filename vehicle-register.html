@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="container" lang="en">
+<html lang="en">
     <head>
         <title>Register Vehicle</title>
         <meta name="author" content="BBates"/>
@@ -30,11 +30,11 @@
 
     <main>
         <body>
-            <section class="Body" id="BodyGrid">
-                <sidebar class="Sidebar">
+            <section class="Body" id="container">
+                <aside class="Sidebar">
                     <img src="assets/badge.png" alt="Badge" id="BadgeImage"/>
                     <input id="DarkModeButton" name="DarkModeButton" type="button" value="Toggle Dark Mode"> 
-                </sidebar>
+                </aside>
         
                 <main class="Main" id="MainSection">
                     <form class="MainParagraph" id="RegistrationForm" onsubmit="return false;">
@@ -56,7 +56,7 @@
                         <input id="owner" name="owner" type="text" placeholder="Enter value">
                         <br>
                         <br>
-                        <input id="VehicleRegisterButton" name="VehicleRegisterButton" type="submit" value="Add"> 
+                        <input id="Add vehicle" name="Add vehicle" type="submit" value="Add"> 
                         <p hidden id="OwnerInformationPara">Owner not recognised, please enter owner details</p>
                         <label hidden for="name" id="OwnerNameLabel">Owner Name:</label>
                         <input hidden id="name" name="name" type="text" placeholder="Enter value">
