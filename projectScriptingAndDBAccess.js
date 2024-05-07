@@ -435,7 +435,7 @@ async function GetIDFromName(name)
 async function AddOwner()
 {
     let id = OwnerIDBox.value;
-    let ownerName = OwnerName.value;
+    let ownerName = OwnerNameBox.value;
     let address = OwnerAddressBox.value;
     let dob = OwnerDOBBox.value;
     let licenseNumber = OwnerLNBox.value;
