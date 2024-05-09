@@ -127,7 +127,7 @@ function SearchForPerson()
             }
             else
             {
-                ShowResponses("There was an error accessing the database.\r\n");
+                ShowResponses("Error\r\n");
             }
         });
         
@@ -220,7 +220,7 @@ function SearchForVehicle()
             }
             else
             {
-                ShowResponses("There was an error accessing the database.\r\n");
+                ShowResponses("Error\r\n");
             }
         });
         
@@ -245,10 +245,6 @@ const VehicleModelBox = document.getElementById("model");
 const VehicleColourBox = document.getElementById("colour");
 
 const OwnerNameBox = document.getElementById("owner");
-/*if(OwnerNameBox)
-{
-    OwnerNameBox.addEventListener("change", OwnerNameChanged);
-}*/
 const OwnerIDBox = document.getElementById("personid");
 const OwnerName = document.getElementById("name");
 const OwnerAddressBox = document.getElementById("address");
@@ -280,16 +276,27 @@ function RegisterVehicle()
             {
                 if(data.length > 0)
                 {
-                    let successful = InsertVehicle(licensePlate, make, model, colour, name);
-                    successful.then((error) => 
+                    let existingVehicle = GetVehicles(licensePlate);
+                    existingVehicle.then((data, error) => 
                     {
-                        if(error)
+                        if(!error && data.length == 0)
                         {
-                           outputMessage.textContent = "There was an error writing to the database. Please try again.";
+                            let successful = InsertVehicle(licensePlate, make, model, colour, name);
+                            successful.then((error) => 
+                            {
+                                if(error)
+                                {
+                                    outputMessage.textContent = "Error";
+                                }
+                                else
+                                {
+                                    outputMessage.textContent = "Vehicle added successfully";
+                                }
+                            });
                         }
                         else
                         {
-                            outputMessage.textContent = "Vehicle added successfully";
+                            outputMessage.textContent = "Error";
                         }
                     });
                 }
@@ -332,72 +339,6 @@ function RegisterVehicle()
     }
 }
 
-function OwnerNameChanged()
-{
-    let person = CheckOwnerExists(OwnerNameBox.value);
-    person.then((data, error) =>
-    {
-        if(!error && data) 
-        {
-            if(data.length > 0)
-            {
-                document.getElementById("OwnerInformationPara").hidden = true;
-                document.getElementById("address").type = "hidden";
-                document.getElementById("address").value = data[0].Address;
-                document.getElementById("OwnerAddressLabel").hidden = true;
-                document.getElementById("address").hidden = true;
-                document.getElementById("dob").type = "hidden";
-                document.getElementById("dob").value = data[0].DOB;
-                document.getElementById("OwnerDOBLabel").hidden = true;
-                document.getElementById("dob").hidden = true;
-                document.getElementById("license").type = "hidden";
-                document.getElementById("license").value = data[0].LicenseNumber;
-                document.getElementById("OwnerLNLabel").hidden = true;
-                document.getElementById("license").hidden = true;
-                document.getElementById("expire").type = "hidden";
-                document.getElementById("expire").value = data[0].ExpiryDate;
-                document.getElementById("OwnerEDLabel").hidden = true;
-                document.getElementById("expire").hidden = true;
-                document.getElementById("personid").type = "hidden";
-                document.getElementById("personid").value = data[0].PersonID;
-                document.getElementById("OwnerIDLabel").hidden = true;
-                document.getElementById("AddOwnerButton").hidden = true;
-                document.getElementById("name").type = "hidden";
-                document.getElementById("name").value = data[0].Address;
-                document.getElementById("OwnerNameLabel").hidden = true;
-            }
-            else
-            {
-                document.getElementById("OwnerInformationPara").hidden = false;
-                document.getElementById("address").type = "text";
-                document.getElementById("address").value = "";
-                document.getElementById("OwnerAddressLabel").hidden = false;
-                document.getElementById("address").hidden = false;
-                document.getElementById("dob").type = "text";
-                document.getElementById("dob").value = "";
-                document.getElementById("OwnerDOBLabel").hidden = false;
-                document.getElementById("dob").hidden = false;
-                document.getElementById("license").type = "text";
-                document.getElementById("license").value = "";
-                document.getElementById("OwnerLNLabel").hidden = false;
-                document.getElementById("license").hidden = false;
-                document.getElementById("expire").type = "text";
-                document.getElementById("expire").value = "";
-                document.getElementById("OwnerEDLabel").hidden = false;
-                document.getElementById("expire").hidden = false;
-                document.getElementById("personid").type = "text";
-                document.getElementById("personid").value = "";
-                document.getElementById("OwnerIDLabel").hidden = false;
-                document.getElementById("personid").hidden = false;
-                document.getElementById("AddOwnerButton").hidden = false;
-                document.getElementById("name").type = "text";
-                document.getElementById("name").value = "";
-                document.getElementById("OwnerNameLabel").hidden = false;
-                document.getElementById("name").hidden = false;
-            }
-        }
-    });
-}
 
 async function CheckOwnerExists(input)
 {
@@ -426,6 +367,11 @@ async function InsertVehicle(licensePlate, make, model, colour, name)
         });
 }
 
+async function InsertVehicleAfterPerson(licensePlate, make, model, colour, id)
+{
+    const { error } = await supabase.from("Vehicles").insert([{VehicleID: licensePlate, Make: make, Model: model, Colour: colour, OwnerID: id}]);
+    return error;
+}
 async function GetIDFromName(name)
 {
     const {data, error} = await supabase.from("People").select("PersonID").eq('Name',`${name}`);
@@ -445,7 +391,6 @@ async function AddOwner()
     let make = VehicleMakeBox.value;
     let model = VehicleModelBox.value;
     let colour = VehicleColourBox.value;
-
     if(id && ownerName && address && dob && licenseNumber && expiryDate && licensePlate && make && model && colour)
     {
         let successful = InsertPerson(id, ownerName, address, dob, licenseNumber, expiryDate);
@@ -453,20 +398,32 @@ async function AddOwner()
         {
             if(error)
             {
-                outputMessage.textContent = "There was an error writing to the database. Please try again.";
+                outputMessage.textContent = "Error";
                 return;
             }
-            let successful = InsertVehicle(licensePlate, make, model, colour, ownerName);
-            successful.then((error) => 
-            {
-                if(error)
+            let existingVehicle = GetVehicles(licensePlate);
+            existingVehicle.then((data, error) => 
                 {
-                    outputMessage.textContent = "There was an error writing to the database. Please try again.";
-                }
-                else
-                {
-                    outputMessage.textContent = "Vehicle added successfully";
-                }
+                    console.log(data);
+                    if(!error && data.length == 0)
+                    {
+                        let successful = InsertVehicleAfterPerson(licensePlate, make, model, colour, id);
+                        successful.then((error) => 
+                        {
+                            if(error)
+                            {
+                                outputMessage.textContent = "Error";
+                            }
+                            else
+                            {
+                                outputMessage.textContent = "Vehicle added successfully";
+                            }
+                        });
+                    }
+                    else
+                    {
+                        outputMessage.textContent = "Error";
+                    }
             });
         });
     }
@@ -477,11 +434,3 @@ async function AddOwner()
     }
 }
 
-////////// TESTS FOR REQUIREMENT 3 //////////
-
-/*import { test, expect } from '@playwright/test';
-
-test('Works for existing owner', async ({page}) =>
-{
-    await page.goto("https://bbates04.github.io/COMP1004Project/vehicleRegister.html");
-});*/
